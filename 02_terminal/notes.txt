@@ -1,0 +1,110 @@
+Gui vs CLI
+git = VCS = Version Control Software
+
+clear
+
+* navigation
+pwd
+ls => list
+ls -la
+	permissions:
+			owner, group, world
+			r, w, x
+			4, 2, 1
+
+
+-------------------------------------------------------------------
+example:
+
+
+[d][rwx][r-x][r--]
+  │    │    │    └── Others' permissions
+  │    │    └──── Group's permissions
+  │    └──────── Owner's permissions
+  └────────────── File type ('d' = directory, '-' = file)
+
+
+-------------------------------------------------------------------
+
+Add execute permission: chmod +x filename
+
+chmod u-x myscript.sh  # Remove execute permission from the owner
+chmod g-x myscript.sh  # Remove execute permission from the group
+chmod o-x myscript.sh  # Remove execute permission from others
+chmod a-x myscript.sh  # Remove execute permission from everyone
+
+chmod u+r myfile.txt   # Add read permission to owner
+chmod g+r myfile.txt   # Add read permission to group
+chmod o+r myfile.txt   # Add read permission to others
+chmod a+r myfile.txt   # Add read permission to everyone
+
+chmod u+w myfile.txt   # Add write permission to owner
+chmod g+w myfile.txt   # Add write permission to group
+chmod o+w myfile.txt   # Add write permission to others
+chmod a+w myfile.txt   # Add write permission to everyone
+
+chmod a-x,a+r,u+w,g+w filename
+chmod u=rwx,g=rw,o=r filename
+chmod 777 temp.txt
+chmod 477 temp.txt
+chmod 277 temp.txt
+
+-------------------------------------------------------------------
+
+cd
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+manage files & folders
+pwd = print working directory
+touch temp.txt
+
+cat temp.txt
+cat -n file.txt
+cat file1.txt file2.txt > combined.txt
+
+
+mv temp.txt ./tempdir
+rm temp.txt 
+rm -rf mydir
+rmdir mydir
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+
+
+env
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+* pipe and grep
+
+ls -la | grep temp
+cat file.txt | grep b
+grep -i "error" logfile.txt
+
+
+---> search through environment variables
+env | grep python
+
+---> search multiple files
+grep "TODO" *.txt
+grep -r "function" /path/to/code/
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+bashprofile
+export MY_VARIABLE="example_value"
+
+
+export PS1='\u@\h🐍🦫:\w\$ '
+export PS1='🐍🦫'
+export PS1='🦫'
+
+shasum
+shasum -a 256 notes.txt
